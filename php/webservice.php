@@ -31,7 +31,7 @@
         }
         
         //output result in JSON format
-        echo json_encode($resultArray);
+        echo json_encode($arrayResult);
     }
   
   //close connection
