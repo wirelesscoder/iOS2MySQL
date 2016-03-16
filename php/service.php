@@ -1,7 +1,7 @@
 <?php
 
 //Connection to MySQL-database
-$con=mysqli_connect("dbHost","userName","passWord",dbName");
+$con=mysqli_connect("dbHost","userName","passWord","dbName");
 
 //if Connection failed print error message
 if (mysqli_connect_errorno()) 
