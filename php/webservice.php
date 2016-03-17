@@ -1,7 +1,5 @@
 <?php
 
-  echo "webservice";
-  
   //db constants
   
   define('DB_USER', 'web235_1');
