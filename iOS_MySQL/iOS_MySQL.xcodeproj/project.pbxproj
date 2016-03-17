@@ -14,6 +14,8 @@
 		2D7C68351C9B19D100F97C4E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 2D7C68331C9B19D100F97C4E /* LaunchScreen.storyboard */; };
 		2D7C68401C9B19D100F97C4E /* iOS_MySQLTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C683F1C9B19D100F97C4E /* iOS_MySQLTests.swift */; };
 		2D7C684B1C9B19D100F97C4E /* iOS_MySQLUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C684A1C9B19D100F97C4E /* iOS_MySQLUITests.swift */; };
+		2D7C68591C9B275800F97C4E /* HomeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C68581C9B275800F97C4E /* HomeModel.swift */; };
+		2D7C685B1C9B277200F97C4E /* LocationModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2D7C685A1C9B277200F97C4E /* LocationModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +49,8 @@
 		2D7C68461C9B19D100F97C4E /* iOS_MySQLUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOS_MySQLUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2D7C684A1C9B19D100F97C4E /* iOS_MySQLUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOS_MySQLUITests.swift; sourceTree = "<group>"; };
 		2D7C684C1C9B19D100F97C4E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2D7C68581C9B275800F97C4E /* HomeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeModel.swift; sourceTree = "<group>"; };
+		2D7C685A1C9B277200F97C4E /* LocationModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,6 +107,8 @@
 				2D7C68311C9B19D100F97C4E /* Assets.xcassets */,
 				2D7C68331C9B19D100F97C4E /* LaunchScreen.storyboard */,
 				2D7C68361C9B19D100F97C4E /* Info.plist */,
+				2D7C68581C9B275800F97C4E /* HomeModel.swift */,
+				2D7C685A1C9B277200F97C4E /* LocationModel.swift */,
 			);
 			path = iOS_MySQL;
 			sourceTree = "<group>";
@@ -259,8 +265,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2D7C685B1C9B277200F97C4E /* LocationModel.swift in Sources */,
 				2D7C682D1C9B19D100F97C4E /* ViewController.swift in Sources */,
 				2D7C682B1C9B19D100F97C4E /* AppDelegate.swift in Sources */,
+				2D7C68591C9B275800F97C4E /* HomeModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
