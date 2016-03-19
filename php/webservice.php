@@ -1,7 +1,7 @@
 <?php
  
 // Create connection
-$con=mysqli_connect("localhost","web235","Salome45","web235_db1");
+$con=mysqli_connect("localhost","DBUser","DBPass","DBName");
  
 // Check connection
 if (mysqli_connect_errno())
