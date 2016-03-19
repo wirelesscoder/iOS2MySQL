@@ -1,37 +1,37 @@
 <?php
-
-  //db constants
-  
-  define('DB_USER', 'web235_1');
-  define('DB_PASSWORD','Salome45');
-  define('DB_NAME','web235_db1');
-  define('DB_HOST', 'localhost');
-
-  //SQL statement 
-  $sql = "SELECT * FROM tbl_user";
-  
-  //array to store result
-  $arrayResult = array();
-  $arrayTempResult = array();
-  
-  //Connection to MySQL-database
-  $dbcon = @mysqli_connect(DB_HOST,DB_USER,DB_PASSWORD,DB_NAME) OR die('Could not connect to MySQL ' . mysqli_connect_error());
-
-  //store result into array 
-  if ($result = mysqli_query($dbcon, $sql))
-    {
-        while ($row = $result->fetch_object())
-        {
-          $arrayTempResult = $row;
-          array_push($arrayResult, $arrayTempResult);
-        }
-        
-        //output result in JSON format
-        echo json_encode($arrayResult);
-    }
-  
-  //close connection
-  mysqli_close($dbcon);
-
+ 
+// Create connection
+$con=mysqli_connect("localhost","web235","Salome45","web235_db1");
+ 
+// Check connection
+if (mysqli_connect_errno())
+{
+  echo "Failed to connect to MySQL: " . mysqli_connect_error();
+}
+ 
+// This SQL statement selects ALL from the table 'Locations'
+$sql = "SELECT * FROM tbl_user";
+ 
+// Check if there are results
+if ($result = mysqli_query($con, $sql))
+{
+	// If so, then create a results array and a temporary one
+	// to hold the data
+	$resultArray = array();
+	$tempArray = array();
+ 
+	// Loop through each row in the result set
+	while($row = $result->fetch_object())
+	{
+		// Add each row into our results array
+		$tempArray = $row;
+	    array_push($resultArray, $tempArray);
+	}
+ 
+	// Finally, encode the array to JSON and output the results
+	echo json_encode($resultArray);
+}
+ 
+// Close connections
+mysqli_close($con);
 ?>
-

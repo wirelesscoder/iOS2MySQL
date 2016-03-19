@@ -21,7 +21,7 @@ class HomeModel: NSObject, NSURLSessionDataDelegate {
     
     var data : NSMutableData = NSMutableData()
     
-    let urlPath: String = "http://wirelesscoder.com/playground/webservice/webservice.php" //this will be changed to the path where service.php lives
+    let urlPath: String = "http://www.10centsnippets.com/webservice.php" //this will be changed to the path where service.php lives
     
     
     func downloadItems() {
@@ -54,13 +54,12 @@ class HomeModel: NSObject, NSURLSessionDataDelegate {
         
     }
     
-    
     func parseJSON() {
-    
+        
         var jsonResult: NSMutableArray = NSMutableArray()
         
-        do {
-            jsonResult = try NSJSONSerialization.JSONObjectWithData(self.data, options: NSJSONReadingOptions.AllowFragments) as! NSMutableArray
+        do{
+            jsonResult = try NSJSONSerialization.JSONObjectWithData(self.data, options:NSJSONReadingOptions.AllowFragments) as! NSMutableArray
             
         } catch let error as NSError {
             print(error)
@@ -68,27 +67,37 @@ class HomeModel: NSObject, NSURLSessionDataDelegate {
         }
         
         var jsonElement: NSDictionary = NSDictionary()
-        let userEntrys: NSMutableArray = NSMutableArray()
+        let locations: NSMutableArray = NSMutableArray()
         
         for(var i = 0; i < jsonResult.count; i++)
         {
-            jsonElement = jsonResult[i] as! NSDictionary
-            let userEntry = LocationModel()
             
-            if let nummer = jsonElement["nummer"] as? String,
-                let name = jsonElement["name"] as? String,
-                let email = jsonElement["email"] as? String
+            jsonElement = jsonResult[i] as! NSDictionary
+            
+            let location = LocationModel()
+            
+            //the following insures none of the JsonElement values are nil through optional binding
+            if let name = jsonElement["Name"] as? String,
+                let address = jsonElement["Address"] as? String,
+                let latitude = jsonElement["Latitude"] as? String,
+                let longitude = jsonElement["Longitude"] as? String
             {
-                userEntry.nummer = nummer
-                userEntry.name = name
-                userEntry.email = email
+                
+                location.name = name
+                location.address = address
+                location.latitude = latitude
+                location.longitude = longitude
+                
             }
             
-            userEntrys.addObject(userEntry)
+            locations.addObject(location)
+            
         }
         
-        dispatch_async(dispatch_get_main_queue(), { () -> Void in self.delegate.itemsDownloaded(userEntrys)})
-        
-        
+        dispatch_async(dispatch_get_main_queue(), { () -> Void in
+            
+            self.delegate.itemsDownloaded(locations)
+            
+        })
     }
 }
