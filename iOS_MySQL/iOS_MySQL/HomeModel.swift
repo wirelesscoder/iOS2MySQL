@@ -21,8 +21,7 @@ class HomeModel: NSObject, NSURLSessionDataDelegate {
     
     var data : NSMutableData = NSMutableData()
     
-    let urlPath: String = "http://www.10centsnippets.com/webservice.php" //this will be changed to the path where service.php lives
-    
+    let urlPath: String = "http://playground.wirelesscoder.com/iOS2MySQL/iOS2MySQLwebservice.php"
     
     func downloadItems() {
         
